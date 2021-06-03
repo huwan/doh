@@ -1,0 +1,69 @@
+#myVideo{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100%;
+	background-color: black; /* in case the video doesn't fit the whole page*/
+	background-image: /* our video */;
+	background-position: center center;
+	background-size: contain;
+	object-fit: cover; /*cover video background */
+	z-index:1;
+}
+
+
+
+/* Layer with position absolute in order to have it over the video
+* --------------------------------------- */
+.layer{
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	left: 0;
+	top: 43%;
+
+	/*
+	* Preventing flicker on some browsers
+	* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+	*/
+	-webkit-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.layer h1 {
+    margin-bottom: 0;
+    font-size: 30px;
+    color: #ffffff;
+    /*text-align: center;*/
+}
+
+.layer p {
+    font-size: 18px;
+    color: #fcfcfc;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/*solves problem with overflowing video in Mac with Chrome */
+#section2{
+	overflow: hidden;
+}
+
+
+/* Bottom menu
+* --------------------------------------- */
+#infoMenu li a {
+	color: #fff;
+}
+
+
+/* Hiding video controls
+* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
+* --------------------------------------- */
+video::-webkit-media-controls {
+  display:none !important;
+}

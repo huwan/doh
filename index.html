@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dream of Happiness</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <!-- Vendors-->
+        <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
+        <link rel="stylesheet" type="text/css" href="assets/vendors/fullpagejs/fullpage.css" />
+        <!-- App & fonts-->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Work+Sans:300,400,500,700">
+        <!-- <link rel="stylesheet" type="text/css" href="assets/css/main.css"> -->
+        <link rel="stylesheet" type="text/css" href="assets/css/coming-soon.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/particles.css">
+        <!-- <link rel="stylesheet" type="text/css" href="assets/css/cloud.css"> -->
+        <link rel="stylesheet" type="text/css" href="assets/css/video.css">
+        <!-- <link rel="stylesheet" type="text/css" href="assets/css/webcam.css"> -->
+
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div id="fullpage">
+
+            <div class="section" id="section0">
+                        <div class="container">
+
+                            <div class="comming-soon-01">
+                                <h3 class="comming-soon-01__title">Dream of Happiness</h3>
+                                <p class="comming-soon-01__desc">We are working on our website and will be online soon. Stay tuned!</p>
+                                <!-- <p class="comming-soon-01__desc">We Are Almost Ready for Launch. Stay tuned!</p> -->
+
+                                <div class="countdown__module" data-date="2021/06/10 00:00:00">
+                                    <p><span>%D</span> Days</p>
+                                    <p><span>%H</span> Hours</p>
+                                    <p><span>%M</span> Minutes</p>
+                                    <p><span>%S</span> Seconds</p>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="scroller">
+                                    <p>Scroll down or swipe up.</p>
+                                </div>
+                            </div>
+                        </div>
+                    <div id="particles-js" data-effect="default"></div>
+            </div>
+
+            <div class="section" id="section1">
+                        <div class="container">
+
+                            <div class="comming-soon-01">
+                                <h3 class="comming-soon-01__title">Dream of Happiness</h3>
+                                <p class="comming-soon-01__desc">We are working on our website and will be online soon. Stay tuned!</p>
+                                <!-- <p class="comming-soon-01__desc">We Are Almost Ready for Launch. Stay tuned!</p> -->
+                            </div>
+
+                        </div>
+                    <!-- <div id="particles-js2" data-effect="star"></div> -->
+            </div>
+
+<!--             <div class="section" id="section2">
+                <video id="myVideo" loop muted data-autoplay>
+                    <source src="assets/media/emotions.mp4" type="video/mp4">
+                    <source src="assets/media/emotions.webm" type="video/webm">
+                </video>
+                <div class="layer">
+                    <h1>fullPage.js videos</h1>
+                </div>
+            </div> -->
+
+            <div class="section" id="section3">
+                <div class="container">
+                    <div class="comming-soon-01">
+                        <h3 class="comming-soon-01__title">Dream of Happiness</h3>
+                    </div>
+                    <!-- <div id="particles-js3" data-effect="nasa"></div> -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Vendors-->
+        <script type="text/javascript" src="assets/vendors/_jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+        <script type="text/javascript" src="assets/vendors/particles.js/particles.min.js"></script>
+        <script type="text/javascript" src="assets/vendors/fullpagejs/fullpage.js"></script>
+        <script type="text/javascript">
+            var myFullpage = new fullpage('#fullpage', {
+                  licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                  sectionsColor: ['#1b1b1b', '#1b1b1b', '#1b1b1b', '#1b1b1b', '#1b1b1b'],
+                  anchors: ['1', '2', '3', '4', '5'],
+                  menu: '#menu',
+                  continuousVertical: true,
+                  navigation:true,
+                  //equivalent to jQuery `easeOutBack` extracted from http://matthewlein.com/ceaser/
+                  easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+                verticalCentered: true,
+            });
+        </script>
+        <!-- <script type="text/javascript" src="assets/vendors/webcam-easy/webcam-easy.min.js"></script> -->
+
+        <!-- main script-->
+        <script type="text/javascript" src="assets/js/main.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/webcam.js"></script> -->
+
+    </body>
+</html>
