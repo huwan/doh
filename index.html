@@ -33,11 +33,11 @@
                         <div class="container">
 
                             <div class="comming-soon-01">
-                                <h3 class="comming-soon-01__title">Dream of Happiness</h3>
+                                <h3 class="comming-soon-01__title fade-in-text custom-cur">Dream of Happiness</h3>
                                 <p class="comming-soon-01__desc">We are working on our website and will be online soon. Stay tuned!</p>
                                 <!-- <p class="comming-soon-01__desc">We Are Almost Ready for Launch. Stay tuned!</p> -->
 
-                                <div class="countdown__module" data-date="2021/06/10 00:00:00">
+                                <div class="countdown__module hide" data-date="2021/06/10 00:00:00">
                                     <p><span>%D</span> Days</p>
                                     <p><span>%H</span> Hours</p>
                                     <p><span>%M</span> Minutes</p>
@@ -58,6 +58,7 @@
 
                             <div class="comming-soon-01">
                                 <h3 class="comming-soon-01__title">Dream of Happiness</h3>
+
                                 <p class="comming-soon-01__desc">We are working on our website and will be online soon. Stay tuned!</p>
                                 <!-- <p class="comming-soon-01__desc">We Are Almost Ready for Launch. Stay tuned!</p> -->
                             </div>
@@ -93,16 +94,37 @@
         <script type="text/javascript" src="assets/vendors/particles.js/particles.min.js"></script>
         <script type="text/javascript" src="assets/vendors/fullpagejs/fullpage.js"></script>
         <script type="text/javascript">
-            var myFullpage = new fullpage('#fullpage', {
-                  licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-                  sectionsColor: ['#1b1b1b', '#1b1b1b', '#1b1b1b', '#1b1b1b', '#1b1b1b'],
-                  anchors: ['1', '2', '3', '4', '5'],
-                  menu: '#menu',
-                  continuousVertical: true,
-                  navigation:true,
-                  //equivalent to jQuery `easeOutBack` extracted from http://matthewlein.com/ceaser/
-                  easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+            $(function(){
+                $('#fullpage').fullpage({
+                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                sectionsColor: ['#1b1b1b', '#1b1b1b', '#1b1b1b', '#1b1b1b', '#1b1b1b'],
+                // anchors: ['1', '2', '3', '4', '5'],
+                navigation:true,
+                menu: '#menu',
+                continuousVertical: true,
+                // loopBottom:true,
+                easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
                 verticalCentered: true,
+                afterRender: function () {
+                    //disabling scrolling up on page load if we are in the 1st section
+                    if($('.fp-section.active').index('.fp-section') === 0){
+                        fullpage_api.setAllowScrolling(false, 'up');
+                    }
+                },
+                afterLoad: function(origin, destination, direction){
+                    var loadedSection = this;
+                    // console.log("origin: " + origin.index + " destination: " + destination.index );
+
+                    if (destination.index !== 0) {
+                        //activating the scrolling up for any other section
+                        fullpage_api.setAllowScrolling(true, 'up');
+                    }
+                    else {
+                        //disabling the scrolling up when reaching 1st section
+                        fullpage_api.setAllowScrolling(false, 'up');
+                    }
+                },
+                });
             });
         </script>
         <!-- <script type="text/javascript" src="assets/vendors/webcam-easy/webcam-easy.min.js"></script> -->

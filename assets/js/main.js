@@ -1,6 +1,5 @@
-(function($) {
 "use strict";
-window.startComingSoon = function() {
+(function ($) {
 
 	/**
 	 * Countdown
@@ -399,8 +398,6 @@ window.startComingSoon = function() {
 		particlesJS("particles-js3", _particles_effect);
 	}
 
-}
-startComingSoon();
 
 })(jQuery);
 

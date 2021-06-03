@@ -1,7 +1,7 @@
-/* 
-* Changing navigation bullets colors 
+/*
+* Changing navigation bullets colors
 */
-#fp-nav ul li a span, 
+#fp-nav ul li a span,
 .fp-slidesNav ul li a span {
     background: white;
 }
@@ -69,4 +69,49 @@
   align-items: center;
   justify-content: center;
   flex-flow: column;
+}
+
+.blink-text {
+  animation: blinker 5s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+.fade-in-text {
+  display: inline-block;
+  font-size: 120px;
+  color: white;
+  animation: fadeIn linear 5s;
+  -webkit-animation: fadeIn linear 5s;
+  -moz-animation: fadeIn linear 5s;
+  -o-animation: fadeIn linear 5s;
+  -ms-animation: fadeIn linear 5s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  50% {opacity:0.5;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
