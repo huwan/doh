@@ -81,7 +81,7 @@
 
 .fade-in-text {
   display: inline-block;
-  font-size: 120px;
+  font-size: 100px;
   color: white;
   animation: fadeIn linear 5s;
   -webkit-animation: fadeIn linear 5s;
