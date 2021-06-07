@@ -1,10 +1,5 @@
 var w = window.innerWidth;
-var h = window.innerHeight;  
-// window.onresize = function() {
-//   w = window.innerWidth;
-//   h = window.innerHeight;  
-//   canvas.size(w,h);
-// }
+var h = window.innerHeight;
 
 // canvas=createCanvas(w, h);
 // canvas.parent('sketch-holder');
@@ -17,7 +12,7 @@ let gravity = 0; //0.03;
 let friction = -1; //-0.9;
 let balls = [];
 let emotions = [];
-let imageScalar = 0.1;
+let imageScalar = 0.2;
 
 function preload() {
   for (let i = 0; i < 8; i++) {
@@ -26,8 +21,10 @@ function preload() {
 }
 
 function setup() {
-  // createCanvas(720, 400);
-  canvas=createCanvas(w, h);
+  bg = loadImage('assets/media/background/niujiaohui.png');
+  canvas=createCanvas(displayWidth, displayHeight);
+  // canvas=createCanvas(w, h);
+  // canvas=createCanvas(bg.width, bg.height);
   canvas.parent('sketch-holder');
 
   for (let i = 0; i < numBalls; i++) {
@@ -48,8 +45,9 @@ function setup() {
 }
 
 function draw() {
-  background('#F5F5F5');
+  // background('#F5F5F5');
   // background('#1b1b1b');
+  background(bg);
   noStroke();
 
   balls.forEach(ball => {
@@ -57,7 +55,7 @@ function draw() {
     ball.collide();
     ball.move();
     ball.display();
-  });  
+  });
 }
 
 function restart_draw() {
@@ -151,7 +149,7 @@ class Ball {
   }
 
   display() {
-    image(this.emotion, this.x - this.w / 20 , this.y - this.h / 20, this.w / 10, this.h / 10);
+    image(this.emotion, this.x - this.w * imageScalar / 2, this.y - this.h * imageScalar / 2, this.w * imageScalar, this.h * imageScalar);
   }
 
   getstat() {
@@ -169,4 +167,3 @@ class Ball {
   }
 
 }
-

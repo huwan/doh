@@ -14913,8 +14913,8 @@ var clm = {
 
 			var cc = canvas.getContext('2d');
 			cc.fillStyle = 'rgb(200,200,200)';
-			cc.strokeStyle = 'rgb(130,255,50)';
-			//cc.lineWidth = 1;
+			cc.strokeStyle = 'rgb(249,69,82)';
+			cc.lineWidth = 3;
 
 			var paths;
 			if (path === undefined) {
