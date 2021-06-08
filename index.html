@@ -457,6 +457,7 @@
 
     <script type="text/javascript">
         function sendPhotoEmail(toaddr) {
+            document.getElementById("email-submit").innerHTML="Sending ...";
             var send_photo_canvas = document.getElementById('viewport');
             Email.send({
                 Host: "smtp.gmail.com",
@@ -474,6 +475,7 @@
             })
             .then(function(message){
                 alert("Mail has been sent successfully.")
+                document.getElementById("email-submit").innerHTML="Send Email";
                 $('#contact')[0].reset();
 
             });
