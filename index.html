@@ -33,7 +33,7 @@
     <div id="fullpage">
 
 <!--         <div class="section" id="particles">
-            <div id="particles-js" data-effect="default"></div>            
+            <div id="particles-js" data-effect="default"></div>
         </div> -->
 
         <div class="section" id="start">
@@ -114,7 +114,7 @@
             <div class="grid-container">
               <div class="photo_title">
                     <h1>Are you really happy?</h1>
-                    <p>Let's take a photo and detect your perceived facial expressions.</p>
+                    <p>Let's take a photo and detect your perceived facial expressions<a href="#footnote-1" data-title="Personal data will not be kept." data-footnote="*"></a>.</p>
               </div>
               <div class="photo_main">
                     <canvas id="viewport" width="1360" height="1000"></canvas>
@@ -130,7 +130,7 @@
               <div class="photo_mail">
                  <!-- <h1>Take this photo and detection result? </h1> -->
                  <div class="email_container">
-                  <form id="sendmyphoto" method="post">
+                  <form id="contact" autocomplete="off" method="post">
                     <h4>Enter email address to take photo and detection results away!</h4>
                     <fieldset>
                       <input placeholder="Your Email Address" type="email" tabindex="2"  id= "emailaddress" name="emailaddress" required>
@@ -309,14 +309,14 @@
             };
 
             // Play video function
-            function playVid() {      
+            function playVid() {
                 if (vid.paused && !isPlaying) {
                     vid.play();
                 }
-            } 
+            }
 
             // Pause video function
-            function pauseVid() {     
+            function pauseVid() {
                 if (!vid.paused && isPlaying) {
                     vid.pause();
                 }
@@ -462,9 +462,8 @@
                 Host: "smtp.gmail.com",
                 Username : "imengyingchina@gmail.com",
                 Password : "aaacdxbyfzfdbtlk",
-                // SecureToken : "49a9037c-5832-4033-bdf9-5b681a8a3ec7",
                 To : toaddr,
-                From : "imengyingchina@gmail.com",
+                From : "Dream of Happiness<imengyingchina@gmail.com>",
                 Subject : "[System Dreams] Dream of Happiness",
                 Body : "<p>Thank you for visiting our artwork: Dream of Happiness. We hope you enjoy viewing our work.</p><p>Here are your photo and the detection results of your facial expressions. The facial recognition is done by Microsoft face API. It is important to note that facial expressions alone do not represent the internal states of people. Have fun!</p><pre>" + document.getElementById('results').innerHTML + " </pre><p>Best,</p><p>Yujia ZHANG and Hu WAN</p>",
                 Attachments : [
@@ -475,19 +474,19 @@
             })
             .then(function(message){
                 alert("Mail has been sent successfully.")
-                $('#sendmyphoto')[0].reset();
+                $('#contact')[0].reset();
 
             });
         }
 
-        const form = document.getElementById("sendmyphoto");
+        const form = document.getElementById("contact");
         form.addEventListener("submit", (e) => {
           e.preventDefault();
           const data = new FormData(e.target);
           const toaddr = `${data.get("emailaddress")}`;
           sendPhotoEmail(toaddr);
         });
- 
+
     </script>
 
     <script type="text/javascript">
@@ -526,7 +525,7 @@
                 if (destination.index == 4) {
                     var frame_canvas = document.getElementById('viewport'),
                     frame_context = photo_canvas.getContext('2d');
-                
+
                     var frame_background = new Image();
                     frame_background.src = "assets/media/background/frame.png";
 

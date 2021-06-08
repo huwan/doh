@@ -574,3 +574,29 @@ fieldset {
   50% { opacity: 0 }
  100% { opacity: 1 }
 }
+
+a[data-footnote]:after {
+  content: attr(data-footnote);
+  color: #FFF;  
+  /*vertical-align: super;*/
+  /*font-size: 50%;*/
+}
+
+a[data-footnote] {
+  text-decoration: none;
+  position: relative;
+}
+
+a[data-footnote]:hover:before {
+  content: attr(data-title);
+  display: inline;
+  padding: 0.5em;
+  background: rgba(50, 50, 50, 0.95);
+  color: #FFF;
+  position: absolute;
+  top: -90%;
+  left: 110%;
+  border-radius: 1px;
+  width: 20em;
+  font-size: 70%;
+}

@@ -36,7 +36,7 @@ function windowHasFocus() {
 function windowLostFocus() {
   has_focus = false;
   lost_focus_count++;
-  console.log(lost_focus_count + " <~ Lost Focus");
+  // console.log(lost_focus_count + " <~ Lost Focus");
 }
 
 // Count Down that executes ever second
