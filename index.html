@@ -265,8 +265,9 @@
                             $("#results").text(JSON.stringify(data, null, 2));
                         } else {
                             $("#results").text("Sorry, no face detected.");
+                            document.getElementById("takephotoicon").innerHTML="Retake a photo";
+                            document.getElementById('takephotoicon').style.display = 'initial';
                         }
-                        // $("#results").text(JSON.stringify(data));
                     }).fail(function(err) {
                         $("#results").text(JSON.stringify(err));
                     })
@@ -541,7 +542,9 @@
                         frame_context.strokeStyle = 'grey';
                         frame_context.stroke();
                     }
+                    document.getElementById("takephotoicon").innerHTML="Take a photo";
                     document.getElementById('takephotoicon').style.display = 'initial';
+
                     stopVideo();
 
                 }
