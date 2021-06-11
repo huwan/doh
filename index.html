@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/console.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/email.css">
 
 
     <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
@@ -358,8 +357,8 @@
                 localstream = stream;
                 vid.onloadedmetadata = function() {
                     adjustVideoProportions();
-                    // vid.play();
-                    playVid();
+                    vid.play();
+                    // playVid();
                 }
                 vid.onresize = function() {
                     adjustVideoProportions();
@@ -398,11 +397,11 @@
             var trackingStarted = false;
 
             function startVideo() {
-                // vid.play();
+                vid.play();
                 // playVid();
-                if (vid.paused && !isPlaying) {
-                    vid.play();
-                    }
+                // if (vid.paused && !isPlaying) {
+                //     vid.play();
+                //     }
                 ctrack.start(vid);
                 trackingStarted = true;
 
@@ -412,12 +411,12 @@
             function stopVideo() {
               // vid.pause();
               // pauseVid();
-                if (!vid.paused && isPlaying) {
+                // if (!vid.paused && isPlaying) {
                     vid.pause();
                     vid.src = "";
                     localstream.getTracks()[0].stop();
                   // console.log("Video pause");
-                }
+                // }
             }
 
             function drawLoop() {
@@ -542,12 +541,13 @@
                         frame_context.strokeStyle = 'grey';
                         frame_context.stroke();
                     }
-                document.getElementById('takephotoicon').style.display = 'initial';
+                    document.getElementById('takephotoicon').style.display = 'initial';
+                    stopVideo();
 
                 }
             },
             onLeave: function(origin, destination, direction) {
-                if(origin.index === 2 && destination.index === 3) {
+                if(destination.index === 4) {
                     var photo_canvas = document.getElementById("viewport");
                     var newphoto_context = photo_canvas.getContext("2d");
                     newphoto_context.clearRect(0, 0, photo_canvas.width, photo_canvas.height);
@@ -555,9 +555,6 @@
                 }
                 if (origin.index === 3) {
                     stopVideo();
-                }
-                if(destination.index === 0) {
-
                 }
 
             },
