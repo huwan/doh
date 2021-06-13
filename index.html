@@ -133,6 +133,7 @@
                     <h4>Enter email address to take photo and detection results away!</h4>
                     <fieldset>
                       <input placeholder="Your Email Address" type="email" tabindex="2"  id= "emailaddress" name="emailaddress" required>
+                      <input placeholder="Confirm Email Address" type="email" tabindex="2"  id= "emailaddressconfirm" name="emailaddressconfirm" required onblur="confirmEmail()">
                     </fieldset>
 
                     <fieldset>
@@ -489,6 +490,16 @@
           sendPhotoEmail(toaddr);
         });
 
+    </script>
+
+    <script type="text/javascript">
+        function confirmEmail() {
+            var email = document.getElementById("emailaddress").value
+            var confemail = document.getElementById("emailaddressconfirm").value
+            if(email != confemail) {
+                alert('Email Not Matching!');
+            }
+        }
     </script>
 
     <script type="text/javascript">
