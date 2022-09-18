@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Khula:700);
+@import url(https://fonts.font.im/css?family=Khula:700);
 /*body {
   background: #111;
 }*/
@@ -7,14 +7,14 @@
 }
 .console-container {
   font-family: 'Courier New', monospace;
-  font-size: 9em;
+  font-size: 7em;
   text-align: center;
   height: 200px;
-  width: 2000px;
+  width: max-content;
   display: block;
   position: absolute;
   color: white;
-  top: 0;
+  top: 30px;
   bottom: 30px;
   left: 0;
   right: 0;

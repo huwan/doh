@@ -11,8 +11,10 @@
     <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/grid.css">
     <link rel="stylesheet" type="text/css" href="assets/vendors/fullpagejs/fullpage.css" />
     <!-- App & fonts-->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Work+Sans:300,400,500,700">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300'>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googlefonts.cn/css?family=Roboto:300,400,500,700,900|Work+Sans:300,400,500,700">
+    <link rel='stylesheet' href='https://fonts.googlefonts.cn/css?family=Lato:300'>
+    <link rel="stylesheet" href="https://fonts.googlefonts.cn/css?family=Press+Start+2P">
+    <link href="https://fonts.googlefonts.cn/css?family=Caveat:400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/coming-soon.css">
     <link rel="stylesheet" type="text/css" href="assets/css/particles.css">
     <link rel="stylesheet" type="text/css" href="assets/css/video.css">
@@ -52,8 +54,8 @@
 
                 <div class="author">
                     <p style="font-style: italic;">by</p>
-                    <p>Yujia ZHANG</p>
-                    <p>Hu WAN</p>
+                    <p>ZHANG Yujia</p>
+                    <p>WAN Hu</p>
                 </div>
             </div>
             <div id="particles-js" data-effect="default"></div>
@@ -100,15 +102,16 @@
 
 
         <div class="section" id="takeaphoto">
-            <div id="camBox" style="width:100%;height:100%;">
+            <div id="camBox" style="width:100%;height:100%;background:white;background-image: radial-gradient(black 1px, transparent 0);background-size: 40px 40px;">
                 <!--POPUP DIALOG BOX TO SHOW LIVE WEBCAM.-->
-                <div class="revdivshowimg" style="top:20%;text-align:center;margin:0 auto;">
-                    <div id="webcamera" style="height:auto;text-align:center;margin:10px auto;"></div>
+                <!-- <div class="revdivshowimg"> -->
+                    <div id="webcamera" style="height:auto;text-align:center;margin:50px auto;"></div>
                     <p>
-                        <input type="button" value="Ok" id="btAddPicture" onclick="addCamPicture()" />
+                        <input type="button" class="btn fa-input" value="&#xf030; Ok" id="btAddPicture" onclick="addCamPicture()" />
                         <input type="button" value="Cancel" onclick="document.getElementById('camBox').style.display = 'none'; Webcam.reset('#webcamera');" /> </p>
                     <input type="hidden" id="rowid" />
-                    <input type="hidden" id="dataurl" /> </div>
+                    <input type="hidden" id="dataurl" />
+                <!-- </div> -->
             </div>
             <div class="grid-container">
               <div class="photo_title">
@@ -116,7 +119,7 @@
                     <p>Let's take a photo and detect your perceived facial expressions<a href="#footnote-1" data-title="Personal data will not be kept." data-footnote="*"></a>.</p>
               </div>
               <div class="photo_main">
-                    <canvas id="viewport" width="1360" height="1000"></canvas>
+                    <canvas id="viewport" width="800" height="600"></canvas>
                     <div class="camera_button">
                         <button style="font-size:24px" id="takephotoicon" onclick="takeSnapshot(this)"><i class="fa fa-camera"></i> Take a photo</button>
 
@@ -126,23 +129,7 @@
                         <p>Detection result:</p>
                         <pre id="results"> </pre>
               </div>
-              <div class="photo_mail">
-                 <!-- <h1>Take this photo and detection result? </h1> -->
-                 <div class="email_container">
-                  <form id="contact" autocomplete="off" method="post">
-                    <h4>Enter email address to take photo and detection results away!</h4>
-                    <fieldset>
-                      <input placeholder="Your Email Address" type="email" tabindex="2"  id= "emailaddress" name="emailaddress" required>
-                      <input placeholder="Confirm Email Address" type="email" tabindex="2"  id= "emailaddressconfirm" name="emailaddressconfirm" required onblur="confirmEmail()">
-                    </fieldset>
 
-                    <fieldset>
-                      <button name="submit" type="submit" id="email-submit">Send Email</button>
-                    </fieldset>
-                  </form>
-              </div>
-
-              </div>
             </div>
         </div>
 
@@ -152,19 +139,7 @@
                       <h1>Thank you!</h1>
                       <br />
                         <button id="restart" onclick="fullpage_api.moveSectionDown();">Click to restart.</button>
-
-                      <!-- <p>Click to restart</p> -->
-                      <!-- <p>Continue to homepage to play it again!</p> -->
                     </div>
-                <!-- <div class="comming-soon-01"> -->
-                    <!-- <h3 class="comming-soon-01__title shimmer">Thank you!</h3> -->
-                    <!-- <p class="comming-soon-01__desc">Continue to homepage to play it again!</p> -->
-                <!-- </div> -->
-                <!-- <div class="text"> -->
-                    <!-- <div class="scroller"> -->
-                        <!-- <p>Scroll down or swipe up.</p> -->
-                    <!-- </div> -->
-                <!-- </div> -->
             </div>
                 <!-- <div id="particles-js2" data-effect="star"></div> -->
         </div>
@@ -185,11 +160,9 @@
     <script type="text/javascript" src="assets/vendors/clmtrackr/emotion_classifier.js"></script>
     <script type="text/javascript" src="assets/vendors/clmtrackr/emotionmodel.js"></script>
     <script type="text/javascript" src="assets/vendors/clmtrackr/d3.min.js"></script>
-    <script type="text/javascript" src="https://smtpjs.com/v3/smtp.js"></script>
     <!-- main script-->
     <script type="text/javascript" src="assets/js/sketch.js"></script>
     <script type="text/javascript" src="assets/js/console.js"></script>
-    <script type="text/javascript" src="assets/js/email.js"></script>
     <script type="text/javascript" src="assets/js/autorefresh.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
 
@@ -197,14 +170,14 @@
     <script type="text/javascript">
     takeSnapshot = function(oButton) {
             Webcam.set({
-                width: 1280,
-                height: 720,
+                width: 720,
+                height: 480,
                 image_format: 'jpeg',
                 jpeg_quality: 100,
                 flip_horiz: true,
                 constraints: {
-                    width: { exact: 1280 },
-                    height: { exact: 720 }
+                    width: { exact: 720 },
+                    height: { exact: 480 }
                 }
 
             });
@@ -238,7 +211,7 @@
             base_image = new Image();
             base_image.src = data_uri;
             base_image.onload = function() {
-                photo_context.drawImage(base_image, 40, 40, 1280, 720);
+                photo_context.drawImage(base_image, 40, 40, 720, 480);
                 let data = photo_canvas.toDataURL('image/jpeg');
                 fetch(data).then(res => res.blob()).then(blobData => {
                     $.post({
@@ -266,7 +239,7 @@
                             $("#results").text(JSON.stringify(data, null, 2));
                         } else {
                             $("#results").text("Sorry, no face detected.");
-                            document.getElementById("takephotoicon").innerHTML="Retake a photo";
+                            document.getElementById("takephotoicon").innerHTML="<i class='fa fa-camera'></i> Retake a photo";
                             document.getElementById('takephotoicon').style.display = 'initial';
                         }
                     }).fail(function(err) {
@@ -286,220 +259,174 @@
     }
     </script>
 
-        <script>
-            document.getElementById("videoel").style.display = "none";
-            var ishappy = 2;
-            var vid = document.getElementById("videoel");
-            var vid_width = vid.width;
-            var vid_height = vid.height;
-            var isStillPlaying = false;
-            var overlay = document.getElementById('video_overlay');
-            var overlayCC = overlay.getContext('2d');
+    <script>
+        document.getElementById("videoel").style.display = "none";
+        var ishappy = 2;
+        var vid = document.getElementById("videoel");
+        var vid_width = vid.width;
+        var vid_height = vid.height;
+        var isStillPlaying = false;
+        var overlay = document.getElementById('video_overlay');
+        var overlayCC = overlay.getContext('2d');
 
-            // Initializing values
-            var isPlaying = true;
+        // Initializing values
+        var isPlaying = true;
 
-            // On video playing toggle values
-            vid.onplaying = function() {
-                isPlaying = true;
-            };
+        // On video playing toggle values
+        vid.onplaying = function() {
+            isPlaying = true;
+        };
 
-            // On video pause toggle values
-            vid.onpause = function() {
-                isPlaying = false;
-            };
+        // On video pause toggle values
+        vid.onpause = function() {
+            isPlaying = false;
+        };
 
-            // Play video function
-            function playVid() {
-                if (vid.paused && !isPlaying) {
-                    vid.play();
+        // Play video function
+        function playVid() {
+            if (vid.paused && !isPlaying) {
+                vid.play();
+            }
+        }
+
+        // Pause video function
+        function pauseVid() {
+            if (!vid.paused && isPlaying) {
+                vid.pause();
+            }
+        }
+
+        function indexOfMax(arr) {
+            if (arr.length === 0) {
+                return -1;
+            }
+
+            var max = arr[0].value;
+            var maxIndex = 0;
+
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i].value > max) {
+                    maxIndex = i;
+                    max = arr[i].value;
                 }
             }
 
-            // Pause video function
-            function pauseVid() {
-                if (!vid.paused && isPlaying) {
-                    vid.pause();
-                }
+            return maxIndex;
+        }
+
+        function adjustVideoProportions() {
+            // resize overlay and video if proportions are different
+            // keep same height, just change width
+            var proportion = vid.videoWidth/vid.videoHeight;
+            vid_width = Math.round(vid_height * proportion);
+            vid.width = vid_width;
+        }
+
+        function gumSuccess( stream ) {
+            // add camera stream if getUserMedia succeeded
+            if ("srcObject" in vid) {
+                vid.srcObject = stream;
+            } else {
+                vid.src = (window.URL && window.URL.createObjectURL(stream));
             }
-
-            function indexOfMax(arr) {
-                if (arr.length === 0) {
-                    return -1;
-                }
-
-                var max = arr[0].value;
-                var maxIndex = 0;
-
-                for (var i = 1; i < arr.length; i++) {
-                    if (arr[i].value > max) {
-                        maxIndex = i;
-                        max = arr[i].value;
-                    }
-                }
-
-                return maxIndex;
-            }
-
-            function adjustVideoProportions() {
-                // resize overlay and video if proportions are different
-                // keep same height, just change width
-                var proportion = vid.videoWidth/vid.videoHeight;
-                vid_width = Math.round(vid_height * proportion);
-                vid.width = vid_width;
-            }
-
-            function gumSuccess( stream ) {
-                // add camera stream if getUserMedia succeeded
-                if ("srcObject" in vid) {
-                    vid.srcObject = stream;
-                } else {
-                    vid.src = (window.URL && window.URL.createObjectURL(stream));
-                }
-                localstream = stream;
-                vid.onloadedmetadata = function() {
-                    adjustVideoProportions();
-                    vid.play();
-                    // playVid();
-                }
-                vid.onresize = function() {
-                    adjustVideoProportions();
-                    if (trackingStarted) {
-                        ctrack.stop();
-                        ctrack.reset();
-                        ctrack.start(vid);
-                    }
-                }
-            }
-
-            function gumFail() {
-                alert("There was some problem trying to fetch video from your webcam. If you have a webcam, please make sure to accept when the browser asks for access to your webcam.");
-            }
-
-            function startCamera() {
-                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-                window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
-
-                // check for camerasupport
-                if (navigator.mediaDevices) {
-                    navigator.mediaDevices.getUserMedia({video : true}).then(gumSuccess).catch(gumFail);
-                } else if (navigator.getUserMedia) {
-                    navigator.getUserMedia({video : true}, gumSuccess, gumFail);
-                } else {
-                    alert("This demo depends on getUserMedia, which your browser does not seem to support. :(");
-                }
-            }
-            vid.addEventListener("canplay", startVideo, false);
-
-            pModel.shapeModel.nonRegularizedVectors.push(9);
-            pModel.shapeModel.nonRegularizedVectors.push(11);
-
-            var ctrack = new clm.tracker({useWebGL : true});
-            ctrack.init(pModel);
-            var trackingStarted = false;
-
-            function startVideo() {
+            localstream = stream;
+            vid.onloadedmetadata = function() {
+                adjustVideoProportions();
                 vid.play();
                 // playVid();
-                // if (vid.paused && !isPlaying) {
-                //     vid.play();
-                //     }
-                ctrack.start(vid);
-                trackingStarted = true;
-
-                drawLoop();
             }
-
-            function stopVideo() {
-              // vid.pause();
-              // pauseVid();
-                // if (!vid.paused && isPlaying) {
-                    vid.pause();
-                    vid.src = "";
-                    localstream.getTracks()[0].stop();
-                  // console.log("Video pause");
-                // }
-            }
-
-            function drawLoop() {
-                requestAnimFrame(drawLoop);
-                overlayCC.clearRect(0, 0, vid_width * 2, vid_height * 2);
-                //psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
-                if (ctrack.getCurrentPosition()) {
-                    ctrack.draw(video_overlay);
-                }
-
-                var cp = ctrack.getCurrentParameters();
-
-                var er = ec.meanPredict(cp);
-
-                var isPassedThreshold = false;
-
-                if (er) {
-                    var maxval_index = indexOfMax(er);
-                        if(maxval_index == 3)
-                        {
-                            ishappy = 1;
-                            // console.log("Happy");
-                            setTimeout(function(){}, 100);
-                        } else {
-                            ishappy = 0;
-                        }
+            vid.onresize = function() {
+                adjustVideoProportions();
+                if (trackingStarted) {
+                    ctrack.stop();
+                    ctrack.reset();
+                    ctrack.start(vid);
                 }
             }
-
-            delete emotionModel["disgusted"];
-            delete emotionModel["fear"];
-            var ec = new emotionClassifier();
-            ec.init(emotionModel);
-            var emotionData = ec.getBlank();
-
-        </script>
-
-    <script type="text/javascript">
-        function sendPhotoEmail(toaddr) {
-            document.getElementById("email-submit").innerHTML="Sending ...";
-            var send_photo_canvas = document.getElementById('viewport');
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username : "imengyingchina@gmail.com",
-                Password : "aaacdxbyfzfdbtlk",
-                To : toaddr,
-                From : "Dream of Happiness<imengyingchina@gmail.com>",
-                Subject : "[System Dreams] Dream of Happiness",
-                Body : "<p>Thank you for visiting our artwork: Dream of Happiness. We hope you enjoy viewing our work.</p><p>Here are your photo and the detection results of your facial expressions. The facial recognition is done by Microsoft face API. It is important to note that facial expressions alone do not represent the internal states of people. Have fun!</p><pre>" + document.getElementById('results').innerHTML + " </pre><p>Best,</p><p>Yujia ZHANG and Hu WAN</p>",
-                Attachments : [
-                {
-                    name: "doh.jpg",
-                    data: send_photo_canvas.toDataURL('image/jpeg')
-                }]
-            })
-            .then(function(message){
-                alert("Mail has been sent successfully.")
-                document.getElementById("email-submit").innerHTML="Send Email";
-                $('#contact')[0].reset();
-
-            });
         }
 
-        const form = document.getElementById("contact");
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const data = new FormData(e.target);
-          const toaddr = `${data.get("emailaddress")}`;
-          sendPhotoEmail(toaddr);
-        });
+        function gumFail() {
+            alert("There was some problem trying to fetch video from your webcam. If you have a webcam, please make sure to accept when the browser asks for access to your webcam.");
+        }
 
-    </script>
+        function startCamera() {
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
 
-    <script type="text/javascript">
-        function confirmEmail() {
-            var email = document.getElementById("emailaddress").value
-            var confemail = document.getElementById("emailaddressconfirm").value
-            if(email != confemail) {
-                alert('Email Not Matching!');
+            // check for camerasupport
+            if (navigator.mediaDevices) {
+                navigator.mediaDevices.getUserMedia({video : true}).then(gumSuccess).catch(gumFail);
+            } else if (navigator.getUserMedia) {
+                navigator.getUserMedia({video : true}, gumSuccess, gumFail);
+            } else {
+                alert("This demo depends on getUserMedia, which your browser does not seem to support. :(");
             }
         }
+        vid.addEventListener("canplay", startVideo, false);
+
+        pModel.shapeModel.nonRegularizedVectors.push(9);
+        pModel.shapeModel.nonRegularizedVectors.push(11);
+
+        var ctrack = new clm.tracker({useWebGL : true});
+        ctrack.init(pModel);
+        var trackingStarted = false;
+
+        function startVideo() {
+            vid.play();
+            // playVid();
+            // if (vid.paused && !isPlaying) {
+            //     vid.play();
+            //     }
+            ctrack.start(vid);
+            trackingStarted = true;
+
+            drawLoop();
+        }
+
+        function stopVideo() {
+          // vid.pause();
+          // pauseVid();
+            // if (!vid.paused && isPlaying) {
+                vid.pause();
+                vid.src = "";
+                localstream.getTracks()[0].stop();
+              // console.log("Video pause");
+            // }
+        }
+
+        function drawLoop() {
+            requestAnimFrame(drawLoop);
+            overlayCC.clearRect(0, 0, vid_width * 2, vid_height * 2);
+            //psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
+            if (ctrack.getCurrentPosition()) {
+                ctrack.draw(video_overlay);
+            }
+
+            var cp = ctrack.getCurrentParameters();
+
+            var er = ec.meanPredict(cp);
+
+            var isPassedThreshold = false;
+
+            if (er) {
+                var maxval_index = indexOfMax(er);
+                    if(maxval_index == 3)
+                    {
+                        ishappy = 1;
+                        // console.log("Happy");
+                        setTimeout(function(){}, 100);
+                    } else {
+                        ishappy = 0;
+                    }
+            }
+        }
+
+        delete emotionModel["disgusted"];
+        delete emotionModel["fear"];
+        var ec = new emotionClassifier();
+        ec.init(emotionModel);
+        var emotionData = ec.getBlank();
+
     </script>
 
     <script type="text/javascript">
@@ -540,7 +467,7 @@
                     frame_context = photo_canvas.getContext('2d');
 
                     var frame_background = new Image();
-                    frame_background.src = "assets/media/background/frame.png";
+                    frame_background.src = "assets/media/background/newframe.png";
 
                     // Make sure the image is loaded first otherwise nothing will draw.
                     frame_background.onload = function(){
@@ -548,12 +475,12 @@
                         frame_context.fillRect(0,0,frame_canvas.width, frame_canvas.height);
                         frame_context.drawImage(frame_background,0,0);
                         frame_context.beginPath();
-                        frame_context.rect(40, 40, 1280, 720);
+                        frame_context.rect(40, 40, 720, 480);
                         frame_context.lineWidth = 1;
                         frame_context.strokeStyle = 'grey';
                         frame_context.stroke();
                     }
-                    document.getElementById("takephotoicon").innerHTML="Take a photo";
+                    document.getElementById("takephotoicon").innerHTML="<i class='fa fa-camera'></i> Take a photo";
                     document.getElementById('takephotoicon').style.display = 'initial';
 
                     stopVideo();

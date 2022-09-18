@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Quicksand:wght@500&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+@import url('https://fonts.font.im/css2?family=Indie+Flower&family=Quicksand:wght@500&display=swap');
+/*@import url("https://fonts.font.im/css?family=Press+Start+2P");*/
 
 
 /*
@@ -33,7 +33,7 @@ body.fp-viewing-0 #fp-nav{
 
 .scroller {
   position: absolute;
-  bottom: 100px;
+  bottom: 50px;
   left: 50%;
   -webkit-transform: translate3d(-50%, 0, 0);
           transform: translate3d(-50%, 0, 0);
@@ -42,6 +42,7 @@ body.fp-viewing-0 #fp-nav{
   border: 4px solid #fff;
   border-radius: 30px;
   z-index: 100;
+  font-family: sans-serif;
 }
 .scroller::after {
   position: absolute;
@@ -61,7 +62,7 @@ body.fp-viewing-0 #fp-nav{
   position: absolute;
   width: 174px;
   left: -64px;
-  top: -48px;
+  top: -24px;
   color: #fff;
 }
 @-webkit-keyframes scroll {
@@ -166,8 +167,8 @@ body {
 }
 
 .shimmer {
-  font-family: "Lato";
-  font-weight: 300;
+  font-family: "Caveat";
+  font-weight: 700;
   font-size: 6em;
   margin: 0 auto;
   padding: 0 140px 0 0;
@@ -336,12 +337,12 @@ table,th,td,th {
   height: 100vh;
   display: grid;
   gap: 2em 2em;
-  grid-template-columns: 1fr 1.1fr 1.1fr 1.1fr;
-  grid-template-rows: 0.3fr minmax(0, 2.3fr) 0.4fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr minmax(0, 2.3fr);
   grid-template-areas:
     "photo_title photo_title photo_title photo_title"
     "photo_main photo_main photo_main photo_info"
-    "photo_mail photo_mail photo_mail photo_mail";
+    /*"photo_mail photo_mail photo_mail photo_info";*/
 }
 
 .photo_main {
@@ -357,16 +358,16 @@ table,th,td,th {
   /*margin: auto;  */
 }
 
-.photo_mail { 
+.photo_mail {
   grid-area: photo_mail;
   text-align:center;
   /*margin: auto;  */
   /*margin: auto;*/
 }
 
-.photo_info { 
+.photo_info {
   grid-area: photo_info;
-  font-size: 24px;
+  font-size: 20px;
   overflow: scroll;
 
   /*text-align:center;*/
@@ -382,14 +383,14 @@ table,th,td,th {
 }
 
 .photo_title h1 {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Caveat', sans-serif;
     margin-top: 1em;
     font-size: 48px;
     color: #ffffff;
 }
 
 .photo_title p {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Caveat', sans-serif;
     font-size: 2em;
     color: #ffffff;
     /*margin-bottom: 20px;*/
@@ -552,25 +553,25 @@ fieldset {
 }
 
 @keyframes glitch {
-  0%, 12%, 15%, 52%, 55%, 82%, 85%, 100% { opacity: 1; transform: scaleX(1) scaleY(1) }  
+  0%, 12%, 15%, 52%, 55%, 82%, 85%, 100% { opacity: 1; transform: scaleX(1) scaleY(1) }
   13% { opacity: .8; transform: scaleY(2); color: #0ff }
   53% { opacity: .8; transform: scaleX(.7);  color: #f0f }
   83% { opacity: .8; transform: rotate(-10deg); color: #ff0 }
 }
 
-@keyframes hue {  
+@keyframes hue {
   13% { color: #0ff }
   53% { color: #f0f }
   83% { color: #ff0 }
 }
 
-@keyframes shrink {  
+@keyframes shrink {
    0% { transform: scaleY(1) }
   50% { transform: scaleY(.5) }
  100% { transform: scaleY(1) }
 }
 
-@keyframes fade {  
+@keyframes fade {
    0% { opacity: 1 }
   50% { opacity: 0 }
  100% { opacity: 1 }
@@ -578,7 +579,7 @@ fieldset {
 
 a[data-footnote]:after {
   content: attr(data-footnote);
-  color: #FFF;  
+  color: #FFF;
   /*vertical-align: super;*/
   /*font-size: 50%;*/
 }
@@ -600,4 +601,8 @@ a[data-footnote]:hover:before {
   border-radius: 1px;
   width: 20em;
   font-size: 70%;
+}
+
+.fa-input {
+  font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
