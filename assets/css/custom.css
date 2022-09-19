@@ -338,7 +338,7 @@ table,th,td,th {
   display: grid;
   gap: 2em 2em;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr minmax(0, 2.3fr);
+  grid-template-rows: 1fr 5fr;
   grid-template-areas:
     "photo_title photo_title photo_title photo_title"
     "photo_main photo_main photo_main photo_info"

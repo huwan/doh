@@ -119,7 +119,7 @@
                     <p>Let's take a photo and detect your perceived facial expressions<a href="#footnote-1" data-title="Personal data will not be kept." data-footnote="*"></a>.</p>
               </div>
               <div class="photo_main">
-                    <canvas id="viewport" width="800" height="600"></canvas>
+                    <canvas id="viewport" width="800" height="570"></canvas>
                     <div class="camera_button">
                         <button style="font-size:24px" id="takephotoicon" onclick="takeSnapshot(this)"><i class="fa fa-camera"></i> Take a photo</button>
 
@@ -211,7 +211,7 @@
             base_image = new Image();
             base_image.src = data_uri;
             base_image.onload = function() {
-                photo_context.drawImage(base_image, 40, 40, 720, 480);
+                photo_context.drawImage(base_image, 40, 10, 720, 480);
                 let data = photo_canvas.toDataURL('image/jpeg');
                 fetch(data).then(res => res.blob()).then(blobData => {
                     $.post({
@@ -467,7 +467,7 @@
                     frame_context = photo_canvas.getContext('2d');
 
                     var frame_background = new Image();
-                    frame_background.src = "assets/media/background/newframe.png";
+                    frame_background.src = "assets/media/background/newframe-800x570.png";
 
                     // Make sure the image is loaded first otherwise nothing will draw.
                     frame_background.onload = function(){
@@ -475,7 +475,7 @@
                         frame_context.fillRect(0,0,frame_canvas.width, frame_canvas.height);
                         frame_context.drawImage(frame_background,0,0);
                         frame_context.beginPath();
-                        frame_context.rect(40, 40, 720, 480);
+                        frame_context.rect(40, 10, 720, 480);
                         frame_context.lineWidth = 1;
                         frame_context.strokeStyle = 'grey';
                         frame_context.stroke();
@@ -483,7 +483,7 @@
                     document.getElementById("takephotoicon").innerHTML="<i class='fa fa-camera'></i> Take a photo";
                     document.getElementById('takephotoicon').style.display = 'initial';
 
-                    stopVideo();
+                    // stopVideo();
 
                 }
             },
